@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.aymane.projetiut.Choix">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TChat"
+        android:id="@+id/Chat"
+        android:layout_marginTop="82dp"
+        android:onClick="Contact"
+        android:layout_below="@+id/imageView2"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Forum"
+        android:id="@+id/Forum"
+        android:onClick="Forum"
+        android:layout_below="@+id/Chat"
+        android:layout_alignStart="@+id/Chat" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Map"
+        android:id="@+id/button3"
+        android:layout_below="@+id/Forum"
+        android:layout_alignEnd="@+id/Forum"
+        android:onClick="map" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Déconnexion"
+        android:id="@+id/button4"
+        android:layout_below="@+id/button3"
+        android:layout_alignEnd="@+id/button3"
+        android:onClick="deconnexion" />
+
+</RelativeLayout>
