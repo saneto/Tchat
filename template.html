@@ -1,0 +1,16 @@
+<div>
+  <h2>Excel Reader</h2>
+  <input type="file" (change)="onFileChange($event)" accept=".xlsx, .xls" />
+  <table *ngIf="data.length">
+    <thead>
+      <tr>
+        <th *ngFor="let header of data[0]">{{ header }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data.slice(1)">
+        <td *ngFor="let cell of row">{{ cell }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
