@@ -1,0 +1,53 @@
+/src
+ └─── /main
+       └─── /java
+             └─── /com
+                   └─── /example
+                         └─── /domain          # Domain Layer
+                               ├─── /model      # Domain Models/Entities
+                               │      └─── (Your domain objects, e.g., `User`, `Order`, etc.)
+                               ├─── /repository # Domain Repositories Interfaces
+                               │      └─── (Repository interfaces, e.g., `UserRepository`, `OrderRepository`, etc.)
+                               ├─── /service    # Domain Services
+                               │      └─── (Domain-related services, e.g., `UserService`, `OrderService`, etc.)
+                               └─── /event      # Domain Events
+                                      └─── (Domain events, e.g., `UserRegisteredEvent`, `OrderPlacedEvent`, etc.)
+                         
+                         └─── /application     # Application Layer
+                               ├─── /dto        # Data Transfer Objects
+                               │      └─── (DTO classes, e.g., `UserDTO`, `OrderDTO`, etc.)
+                               ├─── /service    # Application Services
+                               │      └─── (Application services, e.g., `UserAppService`, `OrderAppService`, etc.)
+                               └─── /mapper     # Mappers to convert between domain and DTOs
+                                      └─── (Mapper interfaces/classes, e.g., `UserMapper`, `OrderMapper`, etc.)
+                         
+                         └─── /infrastructure  # Infrastructure Layer
+                               ├─── /persistence
+                               │      └─── (JPA repositories, entity managers, etc.)
+                               ├─── /config     # Spring Configuration Classes
+                               │      └─── (Configuration classes, e.g., `DatabaseConfig`, `SecurityConfig`, etc.)
+                               └─── /event      # Event Handlers
+                                      └─── (Event listener classes, e.g., `UserEventListener`, etc.)
+                         
+                         └─── /web             # Web Layer (if applicable)
+                               ├─── /controller # REST/Spring MVC Controllers
+                               │      └─── (Controller classes, e.g., `UserController`, `OrderController`, etc.)
+                               ├─── /security   # Security Configurations (if applicable)
+                               │      └─── (Security classes, e.g., `JwtAuthFilter`, `UserDetailsServiceImpl`, etc.)
+                               └─── /exception  # Global Exception Handling
+                                      └─── (Exception handlers, e.g., `GlobalExceptionHandler`, etc.)
+                         
+       └─── /resources       # Resources folder
+             ├─── /static    # Static resources (HTML, CSS, JS)
+             ├─── /templates # Thymeleaf templates (if used)
+             ├─── /application.properties # Main configuration file
+             └─── /application.yml # Alternate configuration file
+
+ └─── /test
+       └─── /java
+             └─── /com
+                   └─── /example
+                         └─── /domain          # Domain Tests
+                         └─── /application     # Application Layer Tests
+                         └─── /infrastructure  # Infrastructure Layer Tests
+                         └─── /web             # Web Layer Tests
