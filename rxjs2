@@ -1,0 +1,26 @@
+import { from, forkJoin } from 'rxjs';
+import { bufferCount, concatMap } from 'rxjs/operators';
+
+// Let's say you get 100 rows from a SQL query
+function fetchRowsFromSQL(): Promise<any[]> {
+  // Simulate SQL query result with 100 rows
+  return Promise.resolve(Array.from({ length: 100 }, (_, i) => ({ id: i + 1 })));
+}
+
+// Your API call that takes a row
+function apiCall(row: any) {
+  // Replace with actual HTTP call
+  return from(fetch(`https://api.example.com/data/${row.id}`).then(res => res.json()));
+}
+
+fetchRowsFromSQL().then(rows => {
+  from(rows).pipe(
+    bufferCount(5), // Group rows into batches of 5
+    concatMap(batch =>
+      forkJoin(batch.map(row => apiCall(row))) // Run batch in parallel
+    )
+  ).subscribe({
+    next: result => console.log('Batch completed:', result),
+    complete: () => console.log('All API calls done.')
+  });
+});
